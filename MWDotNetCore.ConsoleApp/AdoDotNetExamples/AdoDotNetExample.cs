@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace MWDotNetCore.ConsoleApp
+namespace MWDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -58,7 +58,7 @@ namespace MWDotNetCore.ConsoleApp
             sqlDataAdapter.Fill(dt);
 
             connection.Close();
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found.");
                 return;
@@ -100,7 +100,7 @@ namespace MWDotNetCore.ConsoleApp
 
         }
 
-        public void Update(int id, string title, string author , string content)
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -125,7 +125,7 @@ namespace MWDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Delete(int id) 
+        public void Delete(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();

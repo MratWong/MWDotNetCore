@@ -1,4 +1,6 @@
 ﻿using Dapper;
+using MWDotNetCore.ConsoleApp.Dtos;
+using MWDotNetCore.ConsoleApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace MWDotNetCore.ConsoleApp
+namespace MWDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
@@ -26,8 +28,8 @@ namespace MWDotNetCore.ConsoleApp
         {
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
             List<BlogDto> lst = db.Query<BlogDto>("select * from tbl_blog").ToList();
-            
-            foreach(BlogDto item in lst) 
+
+            foreach (BlogDto item in lst)
             {
                 Console.WriteLine(item.BlogId);
                 Console.WriteLine(item.BlogTitle);
@@ -54,7 +56,7 @@ namespace MWDotNetCore.ConsoleApp
             Console.WriteLine("---------------------");
         }
 
-        private void Create(string title, string author , string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -72,7 +74,7 @@ namespace MWDotNetCore.ConsoleApp
            ,@BlogAuthor
            ,@BlogContent)";
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result = db.Execute(query,item);
+            int result = db.Execute(query, item);
 
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
