@@ -125,10 +125,10 @@ namespace MWDotNetCore.RestApi.Controllers
  WHERE BlogId = @BlogId";
 
             int result = _adoDotNetService.Execute(query,
-                            new AdoDotNetParameter("@BlogId", blog.BlogId),
-                            new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
-                            new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
-                            new AdoDotNetParameter("@BlogContent", blog.BlogContent));
+                            new AdoDotNetParameter("@BlogId", id),
+                            new AdoDotNetParameter("@BlogTitle", blog.BlogTitle!),
+                            new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor!),
+                            new AdoDotNetParameter("@BlogContent", blog.BlogContent!));
 
             string message = result > 0 ? "Updating Successful." : "Updating Failed.";
             return Ok(message);
