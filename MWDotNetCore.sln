@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MWDotNetCore.Share", "MWDot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MWDotNetCore.RestApiWithNLayer", "MWDotNetCore.RestApiWithNLayer\MWDotNetCore.RestApiWithNLayer.csproj", "{08891A29-F7E2-4EF1-8A38-93BDF542621E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWDotNetCore.ConsoleAppHttpClient", "MWDotNetCore.ConsoleAppHttpClient\MWDotNetCore.ConsoleAppHttpClient.csproj", "{509271F5-87DC-4637-8850-5B8059A03060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MWDotNetCore.ConsoleAppHttpClient", "MWDotNetCore.ConsoleAppHttpClient\MWDotNetCore.ConsoleAppHttpClient.csproj", "{509271F5-87DC-4637-8850-5B8059A03060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWDotNetCore.ConsoleAppHttpClientExamples", "MWDotNetCore.ConsoleAppHttpClientExamples\MWDotNetCore.ConsoleAppHttpClientExamples.csproj", "{A69C2452-7393-4A5D-A830-BCB671AB7216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{509271F5-87DC-4637-8850-5B8059A03060}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{509271F5-87DC-4637-8850-5B8059A03060}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{509271F5-87DC-4637-8850-5B8059A03060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69C2452-7393-4A5D-A830-BCB671AB7216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69C2452-7393-4A5D-A830-BCB671AB7216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69C2452-7393-4A5D-A830-BCB671AB7216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69C2452-7393-4A5D-A830-BCB671AB7216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
