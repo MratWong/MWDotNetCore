@@ -21,7 +21,7 @@ namespace MWDotNetCore.Share
             return lst;
         }
 
-        public M QueryFirstOfDefault<M>(string query, object? param = null)
+        public M QueryFirstOrDefault<M>(string query, object? param = null)
         {
 
             using IDbConnection db = new SqlConnection(_connectionString);

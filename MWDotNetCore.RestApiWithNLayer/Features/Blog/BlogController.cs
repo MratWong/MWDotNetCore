@@ -8,7 +8,7 @@ namespace MWDotNetCore.RestApiWithNLayer.Features.Blog
     [ApiController]
     public class BlogController : ControllerBase
     {
-        public readonly BL_Blog _bl_Blog;
+        private readonly BL_Blog _bl_Blog;
 
         public BlogController()
         {
@@ -18,7 +18,7 @@ namespace MWDotNetCore.RestApiWithNLayer.Features.Blog
         [HttpGet]
         public IActionResult Read()
         {
-            var lst = _bl_Blog.GetBlogs;
+            var lst = _bl_Blog.GetBlogs();
             return Ok(lst);
         }
 

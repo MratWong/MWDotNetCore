@@ -88,3 +88,43 @@ public class PizzaOrderDetailModel
     [Column("PizzaExtraId")]
     public int PizzaExtraId { get; set; }
 }
+
+public class PizzaOrderInvoiceHeadModel
+{
+    [Key]
+    [Column("PizzaOrderId")]
+    public int PizzaOrderId { get; set; }
+    [Column("PizzaOrderInvoiceNo")]
+    public string PizzaOrderInvoiceNo { get; set; }
+    [Column("PizzaId")]
+    public int PizzaId { get; set; }
+    [Column("Pizza")]
+    public string Pizza { get; set; }
+    [Column("Price")]
+    public decimal Price { get; set; }
+    [Column("TotalAmount")]
+    public decimal TotalAmount { get; set; }
+
+}
+
+public class PizzaOrderDetailInvoiceModel
+{
+    [Key]
+    [Column("PizzaOrderDetailId")]
+    public int PizzaOrderDetailId { get; set; }
+    [Column("PizzaOrderInvoiceNo")]
+    public string PizzaOrderInvoiceNo { get; set; }
+    [Column("PizzaExtraId")]
+    public int PizzaExtraId { get; set; }
+    [Column("PizzaExtraName")]
+    public string PizzaExtraName { get; set; }
+    [Column("Price")]
+    public decimal Price { get; set; }
+
+}
+
+public class PizzaOrderInvoiceResponse
+{
+    public PizzaOrderInvoiceHeadModel Order { get; set; }
+    public List<PizzaOrderDetailInvoiceModel> OrderDetails { get; set; }
+}
