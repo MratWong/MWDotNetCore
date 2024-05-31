@@ -27,7 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWDotNetCore.MyOwnProjectWi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MWDotNetCore.PizzaApi", "MWDotNetCore.PizzaApi\MWDotNetCore.PizzaApi.csproj", "{93C10F3A-F6BE-4DA2-98DD-9FDBF3B33799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWDotNetCore.ConsoleAppRefitExamples", "MWDotNetCore.ConsoleAppRefitExamples\MWDotNetCore.ConsoleAppRefitExamples.csproj", "{4E407015-20AD-4F16-88C8-D358CFFEE3F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MWDotNetCore.ConsoleAppRefitExamples", "MWDotNetCore.ConsoleAppRefitExamples\MWDotNetCore.ConsoleAppRefitExamples.csproj", "{4E407015-20AD-4F16-88C8-D358CFFEE3F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MWDotNetCore.WindowFormApp", "MWDotNetCore.WindowFormApp\MWDotNetCore.WindowFormApp.csproj", "{49411E97-61C1-40AD-AC80-922424BE1CDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{4E407015-20AD-4F16-88C8-D358CFFEE3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E407015-20AD-4F16-88C8-D358CFFEE3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E407015-20AD-4F16-88C8-D358CFFEE3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49411E97-61C1-40AD-AC80-922424BE1CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49411E97-61C1-40AD-AC80-922424BE1CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49411E97-61C1-40AD-AC80-922424BE1CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49411E97-61C1-40AD-AC80-922424BE1CDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
