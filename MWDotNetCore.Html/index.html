@@ -12,9 +12,43 @@
 
 <body>
     <h1>hello</h1>
+    <div class="container">
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" id="txtTitle">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Author</label>
+            <input type="text" class="form-control" id="txtAuthor">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <input type="text" class="form-control" id="txtContent">
+        </div>
+        <div class="btn btn-dark" id="btnCancel">Cancel</div>
+        <div class="btn btn-success" id="btnSave">Save</div>
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">NO</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Content</th>
+                </tr>
+            </thead>
+
+            <tbody id="blogData">
+
+            </tbody>
+        </table>
+    </div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="blog.js"></script>
 
 </html>

@@ -1,40 +1,46 @@
 const tblBlog = "blogs";
+let blogId = '';
+GetBlogTable();
+getBlogs();
 
 function readBlog() {
-    const blogs = localStorage.getItem(tblBlog);
-    console.log(blogs);
+    getBlogs();
 }
-deleteBlog('b7cca8f6-2a67-4262-af6a-47a75e112621');
 
-function createBlog() {
-    const blogs = localStorage.getItem(tblBlog);
-    console.log(blogs);
-    let lst = [];
-
-    if (blogs !== null) {
-        lst = JSON.parse(blogs);
-    }
-
+function createBlog(title, author, content) {
+    let lst = getBlogs();
     const requestModel = {
         id: uuidv4(),
-        title: "title",
-        author: "author",
-        content: "content"
+        title: title,
+        author: author,
+        content: content
 
     }
     lst.push(requestModel);
     const jsonBlog = JSON.stringify(lst);
     localStorage.setItem(tblBlog, jsonBlog);
+
+    successsMessage("Save successfully!");
+}
+
+function editBlog(id) {
+    let lst = getBlogs();
+    const items = lst.filter(x => x.id == id);
+    if (items.length == 0) {
+        console.log("No data found!");
+        return;
+    }
+
+    let item = items[0];
+    blogId = item.id;
+    $('#txtTitle').val(item.title);
+    $('#txtAuthor').val(item.author);
+    $('#txtContent').val(item.content);
 }
 
 function updateBlog(id, title, author, content) {
-    const blogs = localStorage.getItem(tblBlog);
-    console.log(blogs);
-    let lst = [];
 
-    if (blogs !== null) {
-        lst = JSON.parse(blogs);
-    }
+    let lst = getBlogs();
 
     const items = lst.filter(x => x.id === id);
 
@@ -47,7 +53,7 @@ function updateBlog(id, title, author, content) {
     item.author = author;
     item.content = content;
 
-    const index = lst.findIndex(x => x.id == id);
+    const index = lst.findIndex(x => x.id === id);
     lst[index] = item;
 
     const jsonBlog = JSON.stringify(lst);
@@ -55,13 +61,9 @@ function updateBlog(id, title, author, content) {
 }
 
 function deleteBlog(id) {
-    const blogs = localStorage.getItem(tblBlog);
-    console.log(blogs);
-    let lst = [];
-
-    if (blogs !== null) {
-        lst = JSON.parse(blogs);
-    }
+    const result = confirm("Are you sure want to delete?");
+    if (!result) return;
+    let lst = getBlogs();
 
     const items = lst.filter(x => x.id === id);
 
@@ -73,12 +75,72 @@ function deleteBlog(id) {
     lst = lst.filter(x => x.id !== id);
     const jsonBlog = JSON.stringify(lst);
     localStorage.setItem(tblBlog, jsonBlog);
+    successsMessage("Deleted successfully!");
+    GetBlogTable();
+}
 
+function getBlogs() {
+    const blogs = localStorage.getItem(tblBlog);
+    let lst = [];
 
+    if (blogs !== null) {
+        lst = JSON.parse(blogs);
+    }
+    return lst;
 }
 
 function uuidv4() {
     return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
         (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
     );
+}
+
+$('#btnSave').click(function() {
+    const title = $('#txtTitle').val();
+    const author = $('#txtAuthor').val();
+    const content = $('#txtContent').val();
+    if (blogId == '') {
+        createBlog(title, author, content);
+    } else {
+        updateBlog(blogId, title, author, content);
+        successsMessage("Updated successfully!");
+    }
+    clearControls();
+    GetBlogTable();
+})
+
+function clearControls() {
+    $('#txtTitle').val('');
+    $('#txtAuthor').val('');
+    $('#txtContent').val('');
+}
+
+function GetBlogTable() {
+    const lst = getBlogs();
+    let count = 0;
+    let htmlRows = '';
+
+    lst.forEach(item => {
+        const htmlRow = `<tr>
+                    <td>
+                        <div class="btn btn-warning" id="btnEdit" onclick="editBlog('${item.id}')">Edit</div>
+                        <div class="btn btn-danger" id="btnDelete" onclick="deleteBlog('${item.id}')">Delete</div>
+                    </td>
+                    <th scope="row">${++count}</th>
+                    <td>${item.title}</td>
+                    <td>${item.author}</td>
+                    <td>${item.content}</td>
+                </tr>`;
+        htmlRows += htmlRow;
+    });
+
+    $('#blogData').html(htmlRows);
+}
+
+function successsMessage(message) {
+    alert(message);
+}
+
+function errorMessage(message) {
+    alert(message);
 }
